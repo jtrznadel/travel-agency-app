@@ -4,7 +4,7 @@ import React from 'react';
 
 const Slogan = () => {
     return (
-        <div className={`slogan font-rubik font-black text-[80px] text-tertiary w-full text-center mt-24`}>
+        <div className={`slogan font-rubik text-primary text-[80px] w-full text-center mt-24`}>
             <p>EXPLORE</p>
             <p>DREAM</p>
             <p>TRAVEL</p>

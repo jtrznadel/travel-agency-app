@@ -2,7 +2,7 @@
 
 :root {
 	--yellow: ivory;
-	--dark: #2f313a;
+	--dark: #5cdb95;
 	--deg: -86deg;
 	--trans: all 0.4s ease 0s;
 }
@@ -14,7 +14,7 @@ body {
 	display: flex;
 	justify-content: center;
 	font-family: "Lato", Arial, Helvetica, serif;
-	background: linear-gradient(90deg, #131417, var(--dark) 35% 65%, #131417);
+	background: linear-gradient(90deg, #3c508d, var(--dark) 35% 65%, #131417);
 	font-size: 1em;
 }
 
