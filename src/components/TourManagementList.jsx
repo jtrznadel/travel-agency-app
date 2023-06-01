@@ -60,8 +60,10 @@ const TourList = () => {
     }
     return (
         <div className='grid grid-rows-12 gap-4 w-full'>
-            <div className='row-span-6'>      
-                <SearchBar onSearch={handleSearch}/>
+            <div className='row-span-6 text-right'>     
+            <a href="/createTour">
+            <button className='h-[50px] m-5 rounded-lg w-[15%] border-2 border-solid border-orange-500/50 font-monserrat text-white text-[18px] hover:bg-orange-500/50 ease-in duration-300'>Create Tour</button>
+            </a> 
             </div>
             <div className="content row-span-6">
             <ul className='tours'>
