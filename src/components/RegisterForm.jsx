@@ -19,7 +19,7 @@ const RegisterForm = ({ onSubmit }) => {
     const currentDate = new Date();
     const userDateOfBirth = new Date(dateOfBirth);
 
-    if (password !== confirmPassword) {
+    if (password != confirmPassword) {
       setError('Passwords do not match');
       return;
     }
@@ -44,9 +44,18 @@ const RegisterForm = ({ onSubmit }) => {
       // Zapisanie danych do zmiennej lub przekazanie ich dalej
       setError(null);
       setSuccessMessage('Registration successful. You can now log in.');
-    } catch (error) {
+    } catch (e) {
         // Obsługa błędów
-      setError(error.response.data.message);
+      const error = e.response.data;
+      const emailError = error.errors?.Email?.[0] || null;
+      console.log(error.message);
+      console.log(emailError);
+      if(emailError != null){
+        setError(emailError);
+      }else{
+        setError(error.message);
+      }
+
       setSuccessMessage('');
       console.log(error);
       

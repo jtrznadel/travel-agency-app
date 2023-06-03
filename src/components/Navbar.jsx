@@ -14,6 +14,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/');
+    window.location.reload(); // Odświeżenie strony
   };
 
   return (
@@ -66,7 +67,7 @@ const Navbar = () => {
         {role === "User" && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/tourManagement`}>
+              <a className="li-style" href={`/reservations`}>
                 RESERVATIONS
               </a>
             </li>

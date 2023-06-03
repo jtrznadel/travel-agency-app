@@ -30,7 +30,7 @@ const UserList = () => {
 
   const handleSelectUser = (user) => {
     setSelectedUser(user);
-    console.log(user.id)
+    console.log(user.id);
   };
 
   const handleInputChange = (e) => {
@@ -41,26 +41,43 @@ const UserList = () => {
     // Logika aktualizacji użytkownika
     // Możesz użyć wartości `selectedUser` i `inputValue`
 
+    try {
+      await axios({
+        method: 'put',
+        url: `${serverAddress}/account/${selectedUser.id}?roleId=${inputValue}`,
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        data: {}
+      });
 
+      fetchUsers();
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
 
   const handleDelete = async () => {
     // Logika usuwania użytkownika
     // Możesz użyć wartości `selectedUser`
 
-    // try {
-    //     const response = await axios({
-    //       method: 'delete',
-    //       url: `${serverAddress}/account/${selectedUser.id}`,
-    //       headers: {
-    //         Authorization: `Bearer ${token}`
-    //       },
-    //       data: {}
-    //     });
-    //     setUsers(response.data);
-    //   } catch (error) {
-    //     console.log(error.response.data);
-    //   }
+    try {
+      await axios({
+        method: 'delete',
+        url: `${serverAddress}/account/${selectedUser.id}`,
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        data: {}
+      });
+
+      // Aktualizuj listę użytkowników bez usuniętego użytkownika
+      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== selectedUser.id));
+
+      setSelectedUser(null); // Zresetuj zaznaczonego użytkownika po usunięciu
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
 
   const renderUsers = () => {
@@ -89,32 +106,32 @@ const UserList = () => {
   return (
     <div className="flex flex-wrap">
       <div className="w-full p-4 text-right">
-        
-        <button
-          onClick={handleUpdate}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Update
-        </button>
-        <input
-          type="number"
-          min = "1"
-          max = "3"
-          value={inputValue}
-          onChange={handleInputChange}
-          placeholder="Enter role (1, 2, or 3)"
-          className="w-40 p-2 mr-10 ml-2 rounded-lg border border-gray-300 mb-4"
-        />
-        <button
-          onClick={handleDelete}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2"
-        >
-          Delete User
-        </button>
-      </div>
-      <div className="w-full content mx-5">{renderUsers()}</div>
-    </div>
-  );
+       
+      <button
+  onClick={handleUpdate}
+  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+>
+  Update
+</button>
+<input
+  type="number"
+  min="1"
+  max="3"
+  value={inputValue}
+  onChange={handleInputChange}
+  placeholder="Enter role (1, 2, or 3)"
+  className="w-40 p-2 mr-10 ml-2 rounded-lg border border-gray-300 mb-4"
+/>
+<button
+  onClick={handleDelete}
+  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2"
+>
+  Delete User
+</button>
+</div>
+<div className="w-full content mx-5">{renderUsers()}</div>
+</div>
+);
 };
 
 export default UserList;
