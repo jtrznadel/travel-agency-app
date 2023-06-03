@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/');
+    navigate('/travel-agency-app');
     window.location.reload(); // Odświeżenie strony
   };
 
@@ -23,19 +23,19 @@ const Navbar = () => {
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-          <a className="li-style" href={`/`}>
+          <a className="li-style" href={`/travel-agency-app`}>
             HOME
           </a>
         </li>
         {!token && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/register`}>
+              <a className="li-style" href={`/travel-agency-app/register`}>
                 REGISTER
               </a>
             </li>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/login`}>
+              <a className="li-style" href={`/travel-agency-app/login`}>
                 LOGIN
               </a>
             </li>
@@ -44,12 +44,12 @@ const Navbar = () => {
         {role === "Admin" && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/userManagement`}>
+              <a className="li-style" href={`/travel-agency-app/userManagement`}>
                 USER MANAGEMENT
               </a>
             </li>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/tourManagement`}>
+              <a className="li-style" href={`/travel-agency-app/tourManagement`}>
                 TOUR MANAGEMENT
               </a>
             </li>
@@ -58,7 +58,7 @@ const Navbar = () => {
         {role === "Manager" && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/tourManagement`}>
+              <a className="li-style" href={`/travel-agency-app/tourManagement`}>
                 TOUR MANAGEMENT
               </a>
             </li>
@@ -67,7 +67,7 @@ const Navbar = () => {
         {role === "User" && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/reservations`}>
+              <a className="li-style" href={`/travel-agency-app/reservations`}>
                 RESERVATIONS
               </a>
             </li>

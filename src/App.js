@@ -12,14 +12,14 @@ import ReservationPage from './pages/ReservationPage';
 
 const App = () => (
     <Routes>
-      <Route exact path="/" element={<HomePage/>} />
-      <Route path="/login" element={<LoginPage/>} />
-      <Route path="/register" element={<RegisterPage/>} />
-      <Route path="/tourManagement" element={<TourManagementPage/>} />
-      <Route path="/createTour" element={<CreateTourPage/>} />
-      <Route path="/userManagement" element={<UserManagementPage/>} />
-      <Route path="/updateTour/:tourId" element={<UpdateTourPage/>} />
-      <Route path="/reservations" element={<ReservationPage/>} />
+      <Route exact path="/travel-agency-app" element={<HomePage/>} />
+      <Route path="/travel-agency-app/login" element={<LoginPage/>} />
+      <Route path="/travel-agency-app/register" element={<RegisterPage/>} />
+      <Route path="/travel-agency-app/tourManagement" element={<TourManagementPage/>} />
+      <Route path="/travel-agency-app/createTour" element={<CreateTourPage/>} />
+      <Route path="/travel-agency-app/userManagement" element={<UserManagementPage/>} />
+      <Route path="/travel-agency-app/updateTour/:tourId" element={<UpdateTourPage/>} />
+      <Route path="/travel-agency-app/reservations" element={<ReservationPage/>} />
     </Routes>
   );
 

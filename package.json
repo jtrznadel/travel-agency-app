@@ -17,6 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "homepage": "https://jtrznadel.github.io/travel-agency-app",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
