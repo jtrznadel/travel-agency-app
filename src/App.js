@@ -9,18 +9,17 @@ import UpdateTourPage from './pages/TourManagement/TourUpdatePage';
 import UserManagementPage from './pages/UserManagementPage';
 import ReservationPage from './pages/ReservationPage';
 
-
 const App = () => (
-    <Routes>
-      <Route exact path="/travel-agency-app" element={<HomePage/>} />
-      <Route path="/travel-agency-app/login" element={<LoginPage/>} />
-      <Route path="/travel-agency-app/register" element={<RegisterPage/>} />
-      <Route path="/travel-agency-app/tourManagement" element={<TourManagementPage/>} />
-      <Route path="/travel-agency-app/createTour" element={<CreateTourPage/>} />
-      <Route path="/travel-agency-app/userManagement" element={<UserManagementPage/>} />
-      <Route path="/travel-agency-app/updateTour/:tourId" element={<UpdateTourPage/>} />
-      <Route path="/travel-agency-app/reservations" element={<ReservationPage/>} />
-    </Routes>
-  );
+  <Routes>
+    <Route path="/travel-agency-app" element={<HomePage />} />
+    <Route path="/travel-agency-app/login" element={<LoginPage />} />
+    <Route path="/travel-agency-app/register" element={<RegisterPage />} />
+    <Route path="/travel-agency-app/tourManagement" element={<TourManagementPage />} />
+    <Route path="/travel-agency-app/createTour" element={<CreateTourPage />} />
+    <Route path="/travel-agency-app/userManagement" element={<UserManagementPage />} />
+    <Route path="/travel-agency-app/updateTour/:tourId" element={<UpdateTourPage />} />
+    <Route path="/travel-agency-app/reservations" element={<ReservationPage />} />
+  </Routes>
+);
 
 export default App;
