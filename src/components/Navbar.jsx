@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/travel-agency-app');
+    navigate('/');
     window.location.reload(); // Odświeżenie strony
   };
 
@@ -23,9 +23,9 @@ const Navbar = () => {
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-          <a className="li-style" href={`/`}>
+          <a className="li-style" href={`#`}>
             HOME
-          </a>
+          </a>  
         </li>
         {!token && (
           <>
@@ -44,12 +44,12 @@ const Navbar = () => {
         {role === "Admin" && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/travel-agency-app/userManagement`}>
+              <a className="li-style" href={`#/userManagement`}>
                 USER MANAGEMENT
               </a>
             </li>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/travel-agency-app/tourManagement`}>
+              <a className="li-style" href={`#/tourManagement`}>
                 TOUR MANAGEMENT
               </a>
             </li>
@@ -58,7 +58,7 @@ const Navbar = () => {
         {role === "Manager" && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/travel-agency-app/tourManagement`}>
+              <a className="li-style" href={`#/tourManagement`}>
                 TOUR MANAGEMENT
               </a>
             </li>
@@ -67,7 +67,7 @@ const Navbar = () => {
         {role === "User" && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/travel-agency-app/reservations`}>
+              <a className="li-style" href={`#/reservations`}>
                 RESERVATIONS
               </a>
             </li>
