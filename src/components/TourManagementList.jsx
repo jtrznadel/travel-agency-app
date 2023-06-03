@@ -104,7 +104,7 @@ const TourList = () => {
 
   const handleUpdateTour = (tourId) => {
     // Przekieruj do strony UpdateTourPage, przekazując identyfikator wycieczki jako parametr URL
-    window.location.href = `/updateTour/${tourId}`;
+    window.location.href = `#/updateTour/${tourId}`;
   };
 
   const closeModal = () => {
@@ -176,7 +176,7 @@ const TourList = () => {
   return (
     <div className="w-full">
       <div className="text-right">
-        <a href="/createTour">
+        <a href="#/createTour">
           <button className="h-[50px] m-5 rounded-lg border-2 border-solid border-orange-500/50 font-monserrat text-white text-[18px] hover:bg-orange-500/50 ease-in duration-300">
             Create Tour
           </button>

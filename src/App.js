@@ -14,11 +14,11 @@ const App = () => (
     <Route  path="/" element={<HomePage />} />
     <Route path="/login" element={<LoginPage />} />
     <Route path="/register" element={<RegisterPage />} />
-    <Route path="/travel-agency-app/tourManagement" element={<TourManagementPage />} />
-    <Route path="/travel-agency-app/createTour" element={<CreateTourPage />} />
-    <Route path="/travel-agency-app/userManagement" element={<UserManagementPage />} />
-    <Route path="/travel-agency-app/updateTour/:tourId" element={<UpdateTourPage />} />
-    <Route path="/travel-agency-app/reservations" element={<ReservationPage />} />
+    <Route path="/tourManagement" element={<TourManagementPage />} />
+    <Route path="/createTour" element={<CreateTourPage />} />
+    <Route path="/userManagement" element={<UserManagementPage />} />
+    <Route path="/updateTour/:tourId" element={<UpdateTourPage />} />
+    <Route path="/reservations" element={<ReservationPage />} />
   </Routes>
 );
 

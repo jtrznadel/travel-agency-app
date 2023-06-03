@@ -43,7 +43,7 @@ const CreateTourForm = () => {
       // Obsługa sukcesu
       console.log(response.data);
       setError(null);
-      navigate('/travel-agency-app/tourManagement'); // Przekierowanie po utworzeniu wycieczki
+      navigate('#/tourManagement'); // Przekierowanie po utworzeniu wycieczki
     } catch (error) {
       if (error.response && error.response.data && error.response.data.errors) {
         const errorArray = Object.values(error.response.data.errors);

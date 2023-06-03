@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = ({ onSubmit }) => {
-  const navigate = useNavigate();
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -134,7 +133,7 @@ const RegisterForm = ({ onSubmit }) => {
               {successMessage && <p className="text-[16px] pb-2 font-poppins text-green-500">{successMessage}</p>}
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
-                <a href="/login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                <a href="#/login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
                   Sign in
                 </a>
               </p>
