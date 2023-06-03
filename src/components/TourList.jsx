@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../tourStyle.css';
-import img from '../assets/home-image.jpg';
+import img1 from '../assets/example-image1.jpg';
+import img2 from '../assets/example-image2.jpg';
+import img3 from '../assets/example-image3.jpg';
 import SearchBar from './SearchBar';
 import serverAddress from '../constants/serverFile';
 
@@ -13,15 +15,16 @@ const TourList = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetchTours('');
+    fetchTours('','','');
     getDiscount();
     fetchUserReservations();
   }, []);
 
-  const fetchTours = async (place) => {
+  const fetchTours = async (place, date, price) => {
     try {
       const { data } = await axios.get(
-        `${serverAddress}/tour?pageSize=50&pageNumber=1&searchPhrase=${place}`
+        `${serverAddress}/tour?pageSize=50&pageNumber=1&searchPrice=${encodeURIComponent(price)}&searchDate=${encodeURIComponent(date)}&searchPhrase=${encodeURIComponent(place)}`
+
       );
       setTours(data.items);
       const tourIds = data.items.map((tour) => tour.id);
@@ -93,7 +96,7 @@ const TourList = () => {
   };
 
   const handleSearch = (searchParams) => {
-    fetchTours(searchParams.place);
+    fetchTours(searchParams.place,searchParams.date,searchParams.price);
   };
 
   const fetchUserReservations = async () => {
@@ -122,12 +125,15 @@ const TourList = () => {
         const startDate = new Date(tour.startDate).toLocaleDateString();
         const endDate = new Date(tour.endDate).toLocaleDateString();
         const tourLimit = tourLimits[tour.id] || 0;
+        const images = [img1, img2, img3];
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const randomImage = images[randomIndex];
 
         return (
           <div key={key} className="bg-transparent/25 w-full p-5 mb-5">
             <div className="grid grid-cols-12 grid-rows-3 gap-0">
               <div className="col-span-4 row-span-3">
-                <img src={img} className="w-[350px] h-[200px] my-5 rounded-lg" alt="" />
+                <img src={randomImage} className="w-[350px] h-[200px] my-5 rounded-lg" alt="" />
               </div>
               <div className="col-span-8 col-start-5 font-poppins text-white text-center text-[24px]">
                 {tour.name}

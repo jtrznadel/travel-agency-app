@@ -18,18 +18,19 @@ const TourList = () => {
 
   useEffect(() => {
     if (role === 'Manager') {
-      fetchToursManager('');
+      fetchToursManager('','','');
     } else {
-      fetchTours('');
+      fetchTours('','','');
     }
   }, [role]);
 
-  const fetchTours = async (place) => {
+  const fetchTours = async () => {
     try {
-      const { data } = await axios.get(`${serverAddress}/tour?pageSize=50&pageNumber=1&searchPhrase=${place}`);
-      console.log(data.items);
+      const { data } = await axios.get(
+        `${serverAddress}/tour?pageSize=50&pageNumber=1&searchPrice=&searchDate=&searchPhrase=`
+
+      );
       setTours(data.items);
-      console.log(tours);
       const tourIds = data.items.map((tour) => tour.id);
       fetchTourLimits(tourIds);
     } catch (e) {
@@ -37,11 +38,11 @@ const TourList = () => {
     }
   };
 
-  const fetchToursManager = async (place) => {
+  const fetchToursManager = async () => {
     try {
       const { data } = await axios({
         method: 'get',
-        url: `${serverAddress}/tour/manager?pageSize=50&pageNumber=1&searchPhrase=${place}`,
+        url: `${serverAddress}/tour/manager?pageSize=50&pageNumber=1&searchPrice=&searchDate=&searchPhrase=`,
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -91,9 +92,9 @@ const TourList = () => {
         });
         // Przeładuj listę wycieczek po usunięciu
         if (role === 'Manager') {
-          fetchToursManager('');
+          fetchToursManager();
         } else {
-          fetchTours('');
+          fetchTours();
         }
     } catch (e) {
         console.log(e.response.data);
@@ -149,7 +150,7 @@ const TourList = () => {
               </div>
             </div>
             <div className="col-span-12 flex justify-end items-center">
-              {role === 'Manager' ? (
+              {role === 'Manager' || 'Admin' ? (
                 <>
                   <button
                     className="bg-red-500 text-white px-2 py-1 rounded-md cursor-pointer mr-2"
@@ -181,7 +182,7 @@ const TourList = () => {
           </button>
         </a>
       </div>
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 content">
         {renderTours()}
       </div>
 
