@@ -76,7 +76,7 @@ const TourUpdateForm = ({ tourId }) => {
       // Obsługa sukcesu
       console.log(response.data);
       setError(null);
-      navigate('#/tourManagement'); // Przekierowanie po aktualizacji wycieczki
+      navigate('/tourManagement'); // Przekierowanie po aktualizacji wycieczki
     } catch (error) {
       setError(error.response.data);
       // Obsługa błędów
