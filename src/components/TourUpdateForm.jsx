@@ -7,6 +7,7 @@ import { format, parse, isValid } from 'date-fns';
 const TourUpdateForm = ({ tourId }) => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
+  const [errors, setErrors] = useState([]);
   const [tour, setTour] = useState({});
   const token = localStorage.getItem('token');
 
@@ -78,8 +79,13 @@ const TourUpdateForm = ({ tourId }) => {
       setError(null);
       navigate('/tourManagement'); // Przekierowanie po aktualizacji wycieczki
     } catch (error) {
-      setError(error.response.data);
-      // Obsługa błędów
+      if (error.response && error.response.data && error.response.data.errors) {
+        const errorArray = Object.values(error.response.data.errors);
+        setErrors(errorArray);
+        console.log(errorArray)
+      } else {
+        setError('An error occurred');
+      }
     }
   };
 
@@ -218,9 +224,17 @@ const TourUpdateForm = ({ tourId }) => {
                   Update Tour
                 </button>
               </div>
-              {error && (
-                <div className="text-red-500 text-sm mt-2">{error}</div>
-              )}
+              {errors.length > 0 && (
+  <div className="mt-4">
+    <h2 className="text-lg font-bold text-red-500">Errors:</h2>
+    <ul className="list-disc list-inside">
+      <li className="text-red-500">• {errors.slice(0, 2).join('\n• ')}</li>
+      {errors.length > 2 && (
+        <li className="text-red-500">• {errors.slice(2).join('\n• ')}</li>
+      )}
+    </ul>
+  </div>
+)}
             </form>
           </div>
         </div>
