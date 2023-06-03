@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -11,9 +11,9 @@ import ReservationPage from './pages/ReservationPage';
 
 const App = () => (
   <Routes>
-    <Route path="/" element={<HomePage />} />
+    <Route  path="/" element={<HomePage />} />
     <Route path="/login" element={<LoginPage />} />
-    <Route path="/travel-agency-app/register" element={<RegisterPage />} />
+    <Route path="/register" element={<RegisterPage />} />
     <Route path="/travel-agency-app/tourManagement" element={<TourManagementPage />} />
     <Route path="/travel-agency-app/createTour" element={<CreateTourPage />} />
     <Route path="/travel-agency-app/userManagement" element={<UserManagementPage />} />

@@ -23,19 +23,19 @@ const Navbar = () => {
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-          <a className="li-style" href={`/travel-agency-app`}>
+          <a className="li-style" href={`/`}>
             HOME
           </a>
         </li>
         {!token && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/register`}>       
+              <a className="li-style" href={`#/register`}>       
                 REGISTER
               </a>
             </li>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/login`}>
+              <a className="li-style" href={`#/login`}>
                 LOGIN
               </a>
             </li>
