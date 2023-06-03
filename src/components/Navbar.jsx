@@ -30,12 +30,12 @@ const Navbar = () => {
         {!token && (
           <>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/travel-agency-app/register`}>       
+              <a className="li-style" href={`/register`}>       
                 REGISTER
               </a>
             </li>
             <li className={`font-rubik font-bold cursor-pointer text-[18px] mr-10`}>
-              <a className="li-style" href={`/travel-agency-app/login`}>
+              <a className="li-style" href={`/login`}>
                 LOGIN
               </a>
             </li>

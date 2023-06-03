@@ -11,8 +11,8 @@ import ReservationPage from './pages/ReservationPage';
 
 const App = () => (
   <Routes>
-    <Route path="/travel-agency-app" element={<HomePage />} />
-    <Route path="/travel-agency-app/login" element={<LoginPage />} />
+    <Route path="/" element={<HomePage />} />
+    <Route path="/login" element={<LoginPage />} />
     <Route path="/travel-agency-app/register" element={<RegisterPage />} />
     <Route path="/travel-agency-app/tourManagement" element={<TourManagementPage />} />
     <Route path="/travel-agency-app/createTour" element={<CreateTourPage />} />
